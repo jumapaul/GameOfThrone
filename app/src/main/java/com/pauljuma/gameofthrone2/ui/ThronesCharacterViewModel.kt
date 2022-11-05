@@ -15,7 +15,7 @@ import com.pauljuma.gameofthrone2.util.Resource.*
 import kotlinx.coroutines.launch
 
 class ThronesCharacterViewModel(private var repository: ThronesRepository): ViewModel() {
-    val characters: MutableLiveData<ThronesCharacterDataItem> = MutableLiveData()
+    val characters: MutableLiveData<List<ThronesCharacterDataItem>> = MutableLiveData()
 
     init {
         getCharacters()
@@ -23,6 +23,7 @@ class ThronesCharacterViewModel(private var repository: ThronesRepository): View
 
     private fun getCharacters() = viewModelScope.launch {
         val response = repository.getCharacter()
+        characters.value = response
     }
 
 }

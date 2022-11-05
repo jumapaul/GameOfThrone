@@ -19,8 +19,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
-
-    lateinit var characterAdapter: CharacterAdapter
+    val characterAdapter: CharacterAdapter by lazy { CharacterAdapter() }
     lateinit var characterViewModel: ThronesCharacterViewModel
 
     override fun onCreateView(
@@ -29,18 +28,25 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-
         characterViewModel = (activity as MainActivity).viewModel
-
-        setUpRecycleView()
+        observeThrones()
         return view
 
     }
 
+    private fun observeThrones(){
+        characterViewModel.characters.observe(viewLifecycleOwner){
+            if(it.isNotEmpty()){
+                characterAdapter.addItems(it)
+                setUpRecycleView()
+            }
+        }
+    }
+
     private fun setUpRecycleView() {
-        characterAdapter = CharacterAdapter()
 
         rvThronesCharacter.apply {
+            hasFixedSize()
             adapter = characterAdapter
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
