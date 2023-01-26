@@ -5,12 +5,12 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.pauljuma.gameofthrone2.dao.ThronesDatabase
 import com.pauljuma.gameofthrone2.repository.ThronesRepository
-import com.pauljuma.gameofthrone2.ui.ThronesCharacterViewModel
+import com.pauljuma.gameofthrone2.ui.ThronesViewModel
 import com.pauljuma.gameofthrone2.ui.ThronesCharacterViewModelFactoryProvider
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var viewModel: ThronesCharacterViewModel
+    lateinit var viewModel: ThronesViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(
             this,
             thronesViewModelFactory
-        ).get(ThronesCharacterViewModel::class.java)
+        ).get(ThronesViewModel::class.java)
 
         supportActionBar?.hide()
     }

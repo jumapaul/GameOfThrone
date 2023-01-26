@@ -21,21 +21,9 @@ class FirstOnboard : Fragment() {
         val view = inflater.inflate(R.layout.fragment_first_onboard, container, false)
         val viewPage = activity?.vpViewPager
 
-        if (onBoardingFinished()) {
-            findNavController().navigate(R.id.action_namePage_to_homeFragment)
-        } else {
-            //findNavController().navigate(R.id.)
-        }
         view.btnNext1.setOnClickListener {
             viewPage?.currentItem = 1
         }
-
-
         return view
-    }
-
-    private fun onBoardingFinished(): Boolean {
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("finished", false)
     }
 }

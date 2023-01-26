@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.pauljuma.gameofthrone2.R
 import kotlinx.android.synthetic.main.fragment_third_onboard.view.*
+import kotlinx.android.synthetic.main.fragment_view_pager.*
 
 class ThirdOnboard : Fragment() {
 
@@ -20,15 +21,18 @@ class ThirdOnboard : Fragment() {
         val view = inflater.inflate(R.layout.fragment_third_onboard, container, false)
 
         view.btnNext3.setOnClickListener {
-             findNavController().navigate(R.id.action_viewPager_to_namePage)
+
+            findNavController().navigate(R.id.action_viewPager_to_namePage)
+
             onBoardFinished()
         }
 
         return view
     }
 
-    private fun onBoardFinished(){
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+   private fun onBoardFinished(){
+        val sharedPref = requireActivity().getSharedPreferences("onBoarding",
+            Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putBoolean("Finished", true)
         editor.apply()

@@ -15,4 +15,12 @@ data class ThronesCharacterDataItem(
     var imageUrl: String,
     var lastName: String,
     var title: String
-)
+):Serializable
+
+
+
+
+
+
+
+

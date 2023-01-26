@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.pauljuma.gameofthrone2.characterapi.data.ContinentsData
 import com.pauljuma.gameofthrone2.characterapi.data.ThronesCharacterDataItem
 
-@Database(entities = [ThronesCharacterDataItem::class], version = 2, exportSchema = false)
+@Database(entities = [ThronesCharacterDataItem::class, ContinentsData::class], version = 4, exportSchema = false)
 
 abstract class ThronesDatabase : RoomDatabase() {
     abstract fun getCharacterDao(): CharacterDao
+    abstract fun getContinentDao(): ContinentDao
 
     companion object {
         @Volatile

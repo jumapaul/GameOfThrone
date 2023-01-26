@@ -9,6 +9,6 @@ class ThronesCharacterViewModelFactoryProvider(val thronesRepository: ThronesRep
 
     @Suppress("unchecked_cast")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ThronesCharacterViewModel(thronesRepository) as T
+        return ThronesViewModel(thronesRepository) as T
     }
 }

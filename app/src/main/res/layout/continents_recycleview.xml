@@ -16,17 +16,18 @@
             android:id="@+id/riRecycleViewBackground"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/continent1" />
+            android:scaleType="centerCrop"
+             />
 
         <TextView
-            android:id="@+id/tvContinentName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:fontFamily="@font/extra_bold"
-            android:text="Westeros"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+                android:id="@+id/tvContinentName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="150dp"
+                android:fontFamily="@font/extra_bold"
+                android:text="Westeros"
+                android:textColor="@color/white"
+                android:textSize="20sp"/>
     </androidx.cardview.widget.CardView>
 
 

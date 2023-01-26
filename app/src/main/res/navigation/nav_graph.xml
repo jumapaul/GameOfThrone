@@ -1,39 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/viewPager">
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/splashScreen2">
     <fragment
-        android:id="@+id/viewPager"
-        android:name="com.pauljuma.gameofthrone2.onboards.viewpager.ViewPager"
-        android:label="fragment_view_pager"
-        tools:layout="@layout/fragment_view_pager" >
+            android:id="@+id/viewPager"
+            android:name="com.pauljuma.gameofthrone2.onboards.viewpager.ViewPager"
+            android:label="fragment_view_pager"
+            tools:layout="@layout/fragment_view_pager">
         <action
-            android:id="@+id/action_viewPager_to_namePage"
-            app:destination="@id/namePage"
-            app:popUpTo="@id/viewPager"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_viewPager_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/viewPager"
-            app:popUpToInclusive="true" />
+                android:id="@+id/action_viewPager_to_namePage"
+                app:destination="@id/namePage"
+                app:popUpTo="@id/viewPager"
+                app:popUpToInclusive="true"/>
     </fragment>
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.pauljuma.gameofthrone2.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/namePage"
-        android:name="com.pauljuma.gameofthrone2.home.NamePage"
-        android:label="fragment_name_page"
-        tools:layout="@layout/fragment_name_page" >
+            android:id="@+id/homeFragment"
+            android:name="com.pauljuma.gameofthrone2.home.HomeFragment"
+            android:label="fragment_home"
+            tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_namePage_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@id/namePage"
-            app:popUpToInclusive="true" />
+                android:id="@+id/action_homeFragment_to_namePage"
+                app:destination="@id/namePage"/>
+        <action android:id="@+id/action_homeFragment_to_characterDescriptionFragment"
+                app:destination="@id/characterDescriptionFragment"/>
     </fragment>
+    <fragment
+            android:id="@+id/namePage"
+            android:name="com.pauljuma.gameofthrone2.home.NamePage"
+            android:label="fragment_name_page"
+            tools:layout="@layout/fragment_name_page">
+        <action
+                android:id="@+id/action_namePage_to_homeFragment"
+                app:destination="@id/homeFragment"
+                app:popUpTo="@id/namePage"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+            android:id="@+id/splashScreen2"
+            android:name="com.pauljuma.gameofthrone2.onboards.SplashScreen"
+            android:label="fragment_splash_screen"
+            tools:layout="@layout/fragment_splash_screen">
+        <action
+                android:id="@+id/action_splashScreen2_to_viewPager"
+                app:destination="@id/viewPager"
+                app:popUpTo="@id/splashScreen2"
+                app:popUpToInclusive="true"/>
+        <action
+                android:id="@+id/action_splashScreen2_to_namePage"
+                app:destination="@id/namePage"
+                app:popUpTo="@id/splashScreen2"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment android:id="@+id/characterDescriptionFragment"
+              android:name="com.pauljuma.gameofthrone2.home.CharacterDescriptionFragment"
+              android:label="fragment_character_description" tools:layout="@layout/fragment_character_description"/>
+
 </navigation>

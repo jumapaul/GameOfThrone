@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import androidx.fragment.app.Fragment
 import com.pauljuma.gameofthrone2.R
 import com.pauljuma.gameofthrone2.onboards.FirstOnboard
@@ -28,6 +29,7 @@ class ViewPager : Fragment() {
         val pagerAdapter =
             ViewPagerAdapter(fragmentList, requireActivity().supportFragmentManager, lifecycle)
         view.vpViewPager.adapter = pagerAdapter
+
         return view
     }
 

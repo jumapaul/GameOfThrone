@@ -1,13 +1,14 @@
-package com.pauljuma.gameofthrone2.characterrecycleview
+package com.pauljuma.gameofthrone2.thronesrecycleviews
 
 import android.annotation.SuppressLint
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
 import com.pauljuma.gameofthrone2.R
 import com.pauljuma.gameofthrone2.characterapi.data.ThronesCharacterDataItem
 import kotlinx.android.synthetic.main.character_recycleview.view.riCharacter
@@ -27,6 +28,12 @@ class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.CharacterViewHold
         fun bind(characterDataItem: ThronesCharacterDataItem) {
             Glide.with(itemView.context).load(characterDataItem.imageUrl).into(itemView.riCharacter)
             itemView.tvCharacterName.text = characterDataItem.fullName
+
+            itemView.setOnClickListener { view ->
+                val bundle = Bundle()
+                bundle.putSerializable("character", characterDataItem)
+                view.findNavController().navigate(R.id.action_homeFragment_to_characterDescriptionFragment, bundle)
+            }
         }
     }
 
