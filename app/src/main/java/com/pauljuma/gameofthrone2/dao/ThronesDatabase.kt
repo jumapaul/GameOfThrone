@@ -10,8 +10,8 @@ import com.pauljuma.gameofthrone2.characterapi.data.ThronesCharacterDataItem
 @Database(entities = [ThronesCharacterDataItem::class, ContinentsData::class], version = 4, exportSchema = false)
 
 abstract class ThronesDatabase : RoomDatabase() {
+    abstract fun getContinentsDao(): ContininentDao
     abstract fun getCharacterDao(): CharacterDao
-    abstract fun getContinentDao(): ContinentDao
 
     companion object {
         @Volatile
